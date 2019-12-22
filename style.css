@@ -1,9 +1,15 @@
+/**
+ * Copyright (c) 2019 Tobias Briones.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
     font-family: 'ZCOOL XiaoWei', serif;
-    
 }
 
 input {
@@ -11,13 +17,11 @@ input {
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
     padding: 8px;
-    
 }
 
 input:focus {
     outline: none;
     border: 1px solid rgba(0, 0, 0, 0.5);
-    
 }
 
 button {
@@ -30,17 +34,14 @@ button {
     border-radius: 8px;
     transition: transform 600ms;
     cursor: pointer;
-    
 }
 
 button:hover {
     transform: scale(1.01);
-    
 }
 
 #container {
     padding: 2% 5%;
-    
 }
 
 .author {
@@ -48,7 +49,6 @@ button:hover {
     color: #737373;
     font-style: italic;
     font-size: 12pt;
-    
 }
 
 .divider {
@@ -56,7 +56,6 @@ button:hover {
     height: 1px;
     background-color: #737373;
     margin: 18px 0px;
-    
 }
 
 .description > p {
@@ -64,17 +63,14 @@ button:hover {
     font-weight: bold;
     margin-top: 18px;
     margin-bottom: 14px;
-    
 }
 
 .description > span {
     color: #737373;
-    
 }
 
 .universities {
     margin: 24px 0px;
-    
 }
 
 .universities > p,
@@ -82,13 +78,11 @@ button:hover {
     display: block;
     text-transform: uppercase;
     font-weight: 600;
-    
 }
 
 .universities div,
 .criteria div {
     padding: 12px 16px;
-    
 }
 
 .universities .input,
@@ -96,7 +90,6 @@ button:hover {
     display: inline-block;
     width: 60%;
     vertical-align: top;
-    
 }
 
 .universities .input input,
@@ -104,7 +97,6 @@ button:hover {
     display: block;
     width: 75%;
     margin: 0px auto;
-    
 }
 
 .universities .list,
@@ -115,7 +107,6 @@ button:hover {
     padding: 8px 16px;
     border-left: 1px solid rgba(0, 0, 0, 0.2);
     overflow-y: auto;
-    
 }
 
 .item {
@@ -123,12 +114,10 @@ button:hover {
     height: 36px;
     transition: border 300ms;
     cursor: pointer;
-    
 }
 
 .item:hover {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    
 }
 
 .item > span {
@@ -138,7 +127,6 @@ button:hover {
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;
-    
 }
 
 .item > .delete {
@@ -147,28 +135,23 @@ button:hover {
     padding: 0px;
     color: #d32f2f;
     font-weight: bolder;
-    
 }
 
 #next {
     background-color: #1976D2;
-    
 }
 
 #run {
     background-color: #00796B;
-    
 }
 
 .visible {
     opacity: 1 !important;
-    
 }
 
 .tree {
     opacity: 0;
     transition: opacity 400ms;
-    
 }
 
 .tree .selection > div,
@@ -180,32 +163,27 @@ button:hover {
     -webkit-box-shadow: 0px 4px 8px -2px rgba(0,0,0,0.33);
     -moz-box-shadow: 0px 4px 8px -2px rgba(0,0,0,0.33);
     box-shadow: 0px 4px 8px -2px rgba(0,0,0,0.33);
-    
 }
 
 .tree .selection p,
 .tree .results p {
     font-weight: bold;
-        
 }
 
 @media (min-width: 1360px) {
     
     #container {
         margin: 1% 15%;
-        
     }
     
     .universities .input,
     .criteria .input {
         width: 75%;
-        
     }
     
     .universities .list,
     .criteria .list {
         width: 24%;
-        
     }
     
 }
