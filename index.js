@@ -1,15 +1,20 @@
 /*
- * Copyright (c) 2019 Tobias Briones.
+ * Copyright (c) 2019 Tobias Briones. All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * SPDX-License-Identifier: MIT
+ *
+ * This file is part of Example Project: AHP Decision-Making Under Certainty.
+ *
+ * This source code is licensed under the MIT License found in the LICENSE file
+ * in the root directory of this source tree or at
+ * https://opensource.org/licenses/MIT.
  */
 
 const newItem = (name, value) => {
   const item = document.createElement('div');
   const del = document.createElement('div');
   const text = typeof value != 'undefined' ? `${ name } @${ value }%` : name;
-  
+
   item.classList.add('item');
   item.innerHTML = `<span>${ text }</span>`;
   del.classList.add('delete');
@@ -23,7 +28,7 @@ const onNewUniversity = () => {
   const nameEl = document.getElementById('university-name');
   const name = nameEl.value;
   const itemEl = newItem(name);
-  
+
   if (name.trim().length === 0) {
     return;
   }
@@ -41,7 +46,7 @@ const onNewCriteria = () => {
   const name = nameEl.value;
   const value = valueEl.value;
   const itemEl = newItem(name, value);
-  
+
   if (name.trim().length === 0 || value.trim().length === 0) {
     return;
   }
@@ -71,17 +76,20 @@ const onNext = () => {
     const cardEl = document.createElement('div');
     const criteriaEl = document.createElement('p');
     const valuesEl = document.createElement('div');
-    
+
     criteriaEl.innerHTML = criteria.name;
     cardEl.appendChild(criteriaEl);
     cardEl.appendChild(valuesEl);
-    
+
     universities.forEach(university => {
       const parentEl = document.createElement('div');
       const universityEl = document.createElement('div');
       const valuesEl = document.createElement('div');
-      const id = `${ criteria.name.replace(/ /g, '') }-weight-${ university.replace(/ /g, '') }`;
-      
+      const id = `${ criteria.name.replace(
+        / /g,
+        ''
+      ) }-weight-${ university.replace(/ /g, '') }`;
+
       universityEl.innerHTML = university;
       valuesEl.innerHTML = `Set weight <input id="${ id }" type="number"/>`;
       parentEl.appendChild(universityEl);
@@ -91,7 +99,7 @@ const onNext = () => {
     selectionEl.appendChild(cardEl);
   };
   let sum = 0;
-  
+
   if (universities.length === 0 || criteria.length === 0) {
     alert('Empty data');
     return;
@@ -115,18 +123,18 @@ const onExecute = () => {
   const clear = () => universitiesEl.innerHTML = '';
   const getResults = () => {
     const results = [];
-    
+
     universities.forEach(university => {
       const universityResult = {
         university: university,
         weights: []
       };
-      
+
       criteria.forEach(criteria => {
         const id = `${ criteria.name.replace(/ /g, '') }-weight-${ university.replace(/ /g, '') }`;
         const inputEl = document.getElementById(id);
         const weight = parseFloat(inputEl.value);
-        
+
         universityResult.weights.push({ criteria: criteria, weight: weight });
       });
       results.push(universityResult);
@@ -139,11 +147,11 @@ const onExecute = () => {
     const valueEl = document.createElement('div');
     let weighStr = '';
     let value = 0;
-    
+
     universityEl.innerHTML = result.university;
     cardEl.appendChild(universityEl);
     cardEl.appendChild(valueEl);
-    
+
     result.weights.forEach(weight => {
       weighStr += weight.criteria.value + ' x ' + weight.weight + ' + ';
       value += weight.criteria.value * weight.weight;
@@ -155,35 +163,36 @@ const onExecute = () => {
     universitiesEl.appendChild(cardEl);
   };
   const title = document.createElement('p');
-  
+
   title.innerHTML = 'Results';
   clear();
   universitiesEl.appendChild(title);
-  getResults().forEach(result => addItem(result));
-  
-  document.querySelectorAll('.tree .selection > div').forEach(parent => {
-    let weightSum = 0;
-    
-    parent.querySelectorAll('input').forEach(input => weightSum += parseFloat(input.value));
-    if (weightSum !== 100) {
-      const criteria = parent.querySelector('p').innerHTML;
-      
-      alert(
-        `The sum of weights for each criteria must add up 100. Criteria ${ criteria } has a weight of ${ weightSum }`
-      );
-      clear();
-    }
-  });
+  getResults()
+    .forEach(result => addItem(result));
+
+  document.querySelectorAll('.tree .selection > div')
+          .forEach(parent => {
+            let weightSum = 0;
+
+            parent.querySelectorAll('input')
+                  .forEach(input => weightSum += parseFloat(input.value));
+            if (weightSum !== 100) {
+              const criteria = parent.querySelector('p').innerHTML;
+
+              alert(`The sum of weights for each criteria must add up 100. Criteria ${ criteria } has a weight of ${ weightSum }`);
+              clear();
+            }
+          });
 };
 
 // Model
 const getUniversities = () => {
   const items = document.querySelectorAll('.universities .list .item');
   const universities = [];
-  
+
   items.forEach(item => {
     const university = item.querySelector('span').innerHTML;
-    
+
     universities.push(university);
   });
   return universities;
@@ -192,20 +201,27 @@ const getUniversities = () => {
 const getCriteria = () => {
   const items = document.querySelectorAll('.criteria .list .item');
   const criteria = [];
-  
+
   items.forEach(item => {
     const _criteria = item.querySelector('span').innerHTML;
     const split = _criteria.split(' @');
-    const currentCriteria = { name: split[0], value: parseFloat(split[1].substring(0, split[1].length - 1)) };
-    
+    const currentCriteria = {
+      name: split[0],
+      value: parseFloat(split[1].substring(0, split[1].length - 1))
+    };
+
     criteria.push(currentCriteria);
   });
   return criteria;
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('add-university').addEventListener('click', onNewUniversity);
-  document.getElementById('add-criteria').addEventListener('click', onNewCriteria);
-  document.getElementById('next').addEventListener('click', onNext);
-  document.getElementById('run').addEventListener('click', onExecute);
+  document.getElementById('add-university')
+          .addEventListener('click', onNewUniversity);
+  document.getElementById('add-criteria')
+          .addEventListener('click', onNewCriteria);
+  document.getElementById('next')
+          .addEventListener('click', onNext);
+  document.getElementById('run')
+          .addEventListener('click', onExecute);
 });
