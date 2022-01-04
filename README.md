@@ -1,4 +1,4 @@
-# Example Project: AHP Decision-Making Under Certainty
+# Example Project: AHP Decision-Making under Certainty
 
 [![GitHub Repository](https://raw.githubusercontent.com/tobiasbriones/static/main/gh-badge.svg)](https://github.com/tobiasbriones/ep-ahp-decision-making-under-certainty)
 
@@ -19,7 +19,7 @@ Go to: [App](https://ahp-decision-making-under-certainty.ep.dev.mathsoftware.eng
 
 ## License
 
-**Example Project: AHP Decision-Making Under Certainty**
+**Example Project: AHP Decision-Making under Certainty**
 
 Example project for a really simple implementation of the AHP - Analytic
 Hierarchy Process topic mentioned in the book "Operations Research: An
