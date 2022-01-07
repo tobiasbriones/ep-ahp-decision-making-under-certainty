@@ -1,6 +1,6 @@
 # Example Project: AHP Decision-Making under Certainty
 
-[![GitHub Repository](https://raw.githubusercontent.com/tobiasbriones/static/main/gh-badge.svg)](https://github.com/tobiasbriones/ep-ahp-decision-making-under-certainty)
+[![GitHub Repository](https://img.shields.io/static/v1?label=GITHUB&message=REPOSITORY&labelColor=555&color=0277bd&style=for-the-badge&logo=GITHUB)](https://github.com/tobiasbriones/ep-ahp-decision-making-under-certainty)
 
 [![GitHub Project License](https://img.shields.io/github/license/tobiasbriones/ep-ahp-decision-making-under-certainty.svg?style=flat-square)](https://github.com/tobiasbriones/ep-ahp-decision-making-under-certainty/blob/main/LICENSE)
 
